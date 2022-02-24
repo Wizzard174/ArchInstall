@@ -11,15 +11,13 @@ echo "127.0.0.1 localhost" >> /etc/hosts
 echo "::1       localhost" >> /etc/hosts
 echo "127.0.1.1 wizzard174-desktop.localdomain wizzard174-desktop >> /etc/hosts
 echo root:z9pHkT9A | chpasswd
-pacman -S -- noconfirm grub efibootmgr networkmanager network-manager-applet dialog wpa_supplicant mtools dosfstools base-devel linux-headers xdg-user-dirs xdg-utils bluez bluez-utils openssh os-prober ntfs-3g terminus-font xorg plasma firefox neofetch nano xf86-video-amdgpu lightdm lightdm-gtk-greeter firefox htop cmatrix
-pacman -S kde-applications
+pacman -S -- noconfirm amd-ucode linux-zen grub efibootmgr networkmanager network-manager-applet dialog wpa_supplicant mtools dosfstools base-devel linux-zen-headers openssh os-prober xf86-video-amdgpu lightdm lightdm-gtk-greeter lightdm-webkit2-greeter lightdm-webkit-theme-aether i3-gapps i3blocks i3status py3status 
 grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=GRUB
 grub-mkconfig -o /boot/grub/grub.cfg
 systemctl enable NetworkManager
-systemctl enable bluetooth
 systemctl enable sshd
 systemctl enable lightdm
 useradd -m wizzard174
-echo ermanno:z9pHkT9A | chpasswd
+echo wizzard174:z9pHkT9A | chpasswd
 echo "wizzard174 ALL=(ALL) ALL" >> /etc/sudoers.d/wizzard174
 printf "\e[1;32mDone! Type exit, umount -a and reboot.\e[0m"
